@@ -201,5 +201,6 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style>
+@import "@/assets/gnb_style.css";
 </style>

@@ -17,5 +17,6 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style>
+@import "@/assets/comic.css";
 </style>
