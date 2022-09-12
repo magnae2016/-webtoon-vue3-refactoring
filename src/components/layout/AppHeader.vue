@@ -91,16 +91,20 @@
     <div id="menu">
       <ul class="menu">
         <!-- [D] 선택된 li에 current 클래스 추가 -->
-        <li>
-          <router-link to="/"
-            ><span class="Ntxt_home">웹툰 홈</span></router-link
-          >
-        </li>
-        <li class="current">
-          <router-link to="/weekday"
-            ><span class="Ntxt_webtoon">웹툰</span></router-link
-          >
-        </li>
+        <router-link to="/" custom v-slot="{ isExactActive, href, navigate }">
+          <li :class="[isExactActive && 'current']">
+            <a :href="href" @click="navigate"
+              ><span class="Ntxt_home">웹툰 홈</span></a
+            >
+          </li>
+        </router-link>
+        <router-link to="" custom v-slot="{ isActive, href, navigate }">
+          <li :class="[isActive && 'current']">
+            <a :href="href" @click="navigate"
+              ><span class="Ntxt_webtoon">웹툰</span></a
+            >
+          </li>
+        </router-link>
         <li>
           <router-link to="#"
             ><span class="Ntxt_best_challenge">베스트 도전</span></router-link
@@ -124,16 +128,20 @@
       <!--서브메뉴-->
       <ul class="submenu">
         <!-- [D] 선택된 li에 on 클래스 추가 -->
-        <li class="on">
-          <router-link to="/weekday"
-            ><span class="Ntxt_menu_date">요일별</span></router-link
-          >
-        </li>
-        <li>
-          <router-link to="/genre"
-            ><span class="Ntxt_menu_genre">장르별</span></router-link
-          >
-        </li>
+        <router-link to="/weekday" custom v-slot="{ isActive, href, navigate }">
+          <li :class="[isActive && 'on']">
+            <a :href="href" @click="navigate"
+              ><span class="Ntxt_menu_date">요일별</span></a
+            >
+          </li>
+        </router-link>
+        <router-link to="/genre" custom v-slot="{ isActive, href, navigate }">
+          <li :class="[isActive && 'on']">
+            <a :href="href" @click="navigate"
+              ><span class="Ntxt_menu_genre">장르별</span></a
+            >
+          </li>
+        </router-link>
         <li>
           <router-link to="#"
             ><span class="Ntxt_menu_art">작품별</span></router-link
