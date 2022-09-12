@@ -2,22 +2,25 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import WeekdayView from "@/views/WeekdayView.vue";
 import WeekdayListView from "@/views/WeekdayListView.vue";
 import GenreView from "@/views/GenreView.vue";
+import WebtoonView from "@/views/WebtoonView.vue";
 
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    redirect: "/weekday"
-  },
-  {
-    path: "/weekday",
-    component: WeekdayView
-  }, {
-    path: "/weekdayList",
-    component: WeekdayListView
-  }, {
-    path: "/genre",
-    component: GenreView
+    component: WebtoonView,
+    children: [
+      {
+        path: "weekday",
+        component: WeekdayView
+      }, {
+        path: "weekdayList",
+        component: WeekdayListView
+      }, {
+        path: "genre",
+        component: GenreView
+      }
+    ]
   }
 ]
 
