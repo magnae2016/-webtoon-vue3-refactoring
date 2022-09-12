@@ -1,7 +1,15 @@
-import { createStore } from 'vuex'
+import { InjectionKey } from 'vue'
+import { createStore, useStore as baseUseStore, Store, createLogger } from 'vuex'
 
-export default createStore({
+export interface State {
+  count: number
+}
+
+export const key: InjectionKey<Store<State>> = Symbol()
+
+export const store = createStore<State>({
   state: {
+    count: 10
   },
   getters: {
   },
@@ -10,5 +18,11 @@ export default createStore({
   actions: {
   },
   modules: {
-  }
+  },
+  plugins: [createLogger()],
+  strict: true,
 })
+
+export function useStore() {
+  return baseUseStore(key);
+}
