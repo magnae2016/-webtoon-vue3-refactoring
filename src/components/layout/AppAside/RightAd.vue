@@ -9,7 +9,7 @@
       style="width: 240px; height: 240px; margin: 0px auto; position: relative"
     >
       <img
-        src="https://ssl.pstatic.net/melona/libs/1393/1393271/ca5fe4b20668940d03ac_20220602112637060.png"
+        src="@/assets/ca5fe4b20668940d03ac_20220602112637060.png"
         width="240"
         height="240"
         title=""
